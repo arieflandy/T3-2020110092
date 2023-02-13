@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Barang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row g-2">
+            <div class="col-sm-12">
+                <h1>Output Barang</h1>
+            </div>
+            <div class="col-"></div>
+        </div>
+        <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="output-kode" class="form-label">Kode</label>
+                </div>
+                <div class="col-sm-8">
+                    <label for="output-kode" class="form-label" id="output-kode"></label>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="output-nama-barang" class="form-label">Nama Barang</label>
+                </div>
+                <div class="col-sm-8"> 
+                    <label for="output-nama-barang" class="form-label" id="output-nama-barang"></label>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="output-kategori">Kategori</label>
+                </div>
+                <div class="col-sm-8">
+                    <label for="output-kategori" id="output-kategori"></label>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="output-stok" class="form-label">Stok</label>
+                </div>
+                <div class="col-sm-8">
+                    <label for="output-nput-stok" class="form-label" id="output-stok"></label>
+                 </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="output-harga" class="form-label">Harga</label>
+                </div>
+                <div class="col-sm-8">
+                    <label for="output-harga" class="form-label" id="output-harga"></label>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="output-Total-harga" class="form-label">Total Harga</label>
+                </div>
+                <div class="col-sm-8">
+                    <label for="output-total-harga" class="form-label" id="output-total-aset"></label>
+                </div>
+            </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    const params = new Proxy(new URLSearchParams(window.location.search),{
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
+
+/*OBJECT, mengambil dari setiap properti variable sendiri-sendiri, datanya harus jadi variable biasa*/
+const {kode, kategori, stok, harga} = params;
+    console.log(params.kode);
+    console.log(params["nama-barang"]);
+    console.log(params.kategori);
+    console.log(params.stok);
+    console.log(params.harga);
+    document.getElementById('output-kode').innerHTML = kode;
+    document.getElementById('output-nama-barang').innerHTML = params['nama-barang'];
+    document.getElementById('output-kategori').innerHTML = kategori;
+    document.getElementById('output-stok').innerHTML = stok;
+    document.getElementById('output-harga').innerHTML = harga;
+    document.getElementById('output-total-aset').innerHTML = harga * stok;
+</script>
+</body>
+</html>
